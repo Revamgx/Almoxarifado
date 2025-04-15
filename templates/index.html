@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Almoxarifado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container py-4">
+
+    <h2>Cadastro de Produto</h2>
+    <form action="/cadastrar" method="POST" class="row g-3">
+        <div class="col-md-4">
+            <input type="text" name="nome" class="form-control" placeholder="Nome do produto" required>
+        </div>
+        <div class="col-md-3">
+            <input type="number" name="quantidade" class="form-control" placeholder="Quantidade" required>
+        </div>
+        <div class="col-md-3">
+            <input type="text" name="local" class="form-control" placeholder="Local">
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <h2>Estoque Atual</h2>
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Quantidade</th>
+                <th>Local</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td>{{ produto[0] }}</td>
+                <td>{{ produto[1] }}</td>
+                <td>{{ produto[2] }}</td>
+                <td>{{ produto[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
